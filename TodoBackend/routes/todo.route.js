@@ -28,31 +28,31 @@ app.post("/", async (req, res) => {
 });
 
 // Update APi
-app.get("/:id", async (req, res) => {
-  let id = req.params.id;
-  try {
-    let todo = await Todo.findByIdAndUpdate(id, { ...req.body }, { new: true });
-    res.send(todo);
-  } catch (error) {
-    res.status(404).send(error.message);
-  }
-});
+// app.get("/:id", async (req, res) => {
+//   let id = req.params.id;
+//   try {
+//     let todo = await Todo.findByIdAndUpdate(id, { ...req.body }, { new: true });
+//     res.send(todo);
+//   } catch (error) {
+//     res.status(404).send(error.message);
+//   }
+// });
 
-// Delete Todo APi
+// // Delete Todo APi
 
-app.get("/:id", async (req, res) => {
-  let id = req.params.id;
+// app.get("/:id", async (req, res) => {
+//   let id = req.params.id;
   
-  try {
-    let todo = await Todo.findByIdAndDelete(id);
-    if (todo) {
-      res.send("Todo deleted Successfully");
-    } else {
-      res.send("Cannot delete it");
-    }
-  } catch (e) {
-    res.status(404).send(e.message);
-  }
-});
+//   try {
+//     let todo = await Todo.findByIdAndDelete(id);
+//     if (todo) {
+//       res.send("Todo deleted Successfully");
+//     } else {
+//       res.send("Cannot delete it");
+//     }
+//   } catch (e) {
+//     res.status(404).send(e.message);
+//   }
+// });
 
 module.exports = app;
